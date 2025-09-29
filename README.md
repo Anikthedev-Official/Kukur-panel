@@ -1,6 +1,6 @@
 # Kukur-panel
 A mc server hosting panel made by me its soo so so simple
-to run it (and pull it. It uses python flask and)
+to run it (and pull it. It uses python flask, java (ofc) and docker and no hasty things about users, database and etc. just straight to the point)
 ```
 docker run -d -p 8080:8080 \
   -v /home/yoiwannajinksbegam/server:/app/server \
