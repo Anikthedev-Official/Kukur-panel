@@ -2,12 +2,17 @@
 A mc server hosting panel made by me its soo so so simple
 to run it (and pull it. It uses python flask, java (ofc) and docker and no hasty things about users, database and etc. just straight to the point)
 ```
-docker run -d -p 8080:8080 \
+docker run -d \
+  -p 8080:8080 \  
+  -p 25565:25565 \ 
+  -p 25577:25577 \  
   -v /home/yoiwannajinksbegam/server:/app/server \
   -v /home/yoiwannajinksbegam/bungee:/app/bungee \
   -v /home/yoiwannajinksbegam/server.sh:/app/server.sh \
   -v /home/yoiwannajinksbegam/bungee.sh:/app/bungee.sh \
-  --name kukur-panel anikthedev/kukur-panel:v1.0.1
+  --name kukur-panel-container \
+  anikthedev/kukur-panel:v1.0.2
+
 
 ```
 replace the ```/home/yoiwannajinks/<directory>``` with your files okay?
