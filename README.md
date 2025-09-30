@@ -14,12 +14,16 @@ replace the ```/home/yoiwannajinks/<directory>``` with your files okay?
 make a start.sh using 
 ```
 #!/bin/bash
-cd ~/server && java -jar server.jar nogui
+cd /app/server
+java -Xmx1G -Xms1G -jar server.jar nogui
+
 ```
 bungee.sh using
 ```
 #!/bin/bash
-cd ~/bungee && java -jar bungee.jar nogui
+cd /app/bungee
+java -Xmx512M -Xms512M -jar bungee.jar nogui
+
 ```
 and is your using google cloud and put it in the root directory 
 then do this for putting the sh directories
