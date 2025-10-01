@@ -1,6 +1,7 @@
 # Kukur-panel
 ![Alt text](Untitled.png)
- # Current Version AND PULLS!! <p align="center">
+ # Current Version AND PULLS!! 
+ <p align="center">
   <img src="https://img.shields.io/docker/v/anikthedev/kukur-panel?sort=date&label=Version&color=blue" alt="Docker Image Version">
 </p>
 <p align="center">
