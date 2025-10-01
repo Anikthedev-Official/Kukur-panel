@@ -1,7 +1,13 @@
 # Kukur-panel
 ![Alt text](Untitled.png)
- # Current Version!! <p align="center">
+ # Current Version AND PULLS!! <p align="center">
   <img src="https://img.shields.io/docker/v/anikthedev/kukur-panel?sort=date&label=Version&color=blue" alt="Docker Image Version">
+</p>
+<p align="center">
+  <!-- Pull Count -->
+  <a href="https://hub.docker.com/r/anikthedev/kukur-panel">
+    <img src="https://img.shields.io/docker/pulls/anikthedev/kukur-panel?label=Pulls&color=brightgreen" alt="Docker Pulls">
+  </a>
 </p>
 A mc server hosting panel made by me its soo so so simple
 to run it (and pull it. It uses python flask, java (ofc) and docker and no hasty things about users, database and etc. just straight to the point)
