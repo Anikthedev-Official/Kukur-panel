@@ -27,6 +27,8 @@ docker run -d \
   anikthedev/kukur-panel:v1.1.7
 ```
 replace the ```/home/yoiwannajinks/<directory>``` with your files okay?
+anyway  if your not using bungee then dont put (for servers that are made for a small groups of friends)
+plus the port 8080 is for the panel and port 8081 is for eaglercraft (yes i sometimes play java plus eagler) and 25565 is server and 25577 is bungee
 make a start.sh using 
 ```
 #!/bin/bash
