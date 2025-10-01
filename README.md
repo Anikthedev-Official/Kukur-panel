@@ -23,8 +23,7 @@ docker run -d \
   -v /home/yoiwannajinksbegam/server.sh:/app/server.sh \
   -v /home/yoiwannajinksbegam/bungee.sh:/app/bungee.sh \
   --name kukur-panel-container \
-  anikthedev/kukur-panel:v1.0.3
-
+  anikthedev/kukur-panel:v1.0.4
 ```
 replace the ```/home/yoiwannajinks/<directory>``` with your files okay?
 make a start.sh using 
