@@ -46,3 +46,4 @@ and i will never add commands support since you should run the server normally o
 1. at first i used docker it was unstable and shitty and didnt work
 2. then moved to python so basically gave out the code 
 3. then right now reused docker and its v1.0.1 for bcuz its a bugfix or some shit since i forgot to add java-17 in it on gonna mkae its code on the git hub but rn if i make it even better i will someday ok?
+4. source code avalable oct 7? 6? 8? maybe?
