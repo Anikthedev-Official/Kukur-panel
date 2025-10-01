@@ -1,6 +1,8 @@
 # Kukur-panel
 ![Alt text](Untitled.png)
- # Current Version!! ![Kukur Panel Version]([https://img.shields.io/docker/v/anikthedev/kukur-panel?sort=semver](https://img.shields.io/docker/v/anikthedev/kukur-panel?sort=date&label=Docker%20Image&color=blue))
+ # Current Version!! <p align="center">
+  <img src="https://img.shields.io/docker/v/anikthedev/kukur-panel?sort=date&label=Docker%20Image&color=blue" alt="Docker Image Version">
+</p>
 A mc server hosting panel made by me its soo so so simple
 to run it (and pull it. It uses python flask, java (ofc) and docker and no hasty things about users, database and etc. just straight to the point)
 ```
