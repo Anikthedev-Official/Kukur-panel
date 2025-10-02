@@ -200,7 +200,7 @@ def stop_servers():
         bungee_process.terminate()  # or bungee_process.kill()
         bungee_process.wait()
         bungee_process = None
-return "Server and BungeeCord KILLED!!. (issues? hit me up on github, I fix bugs and codes every day!)"
+    return "Server and BungeeCord KILLED!!. (issues? hit me up on github, I fix bugs and codes every day!)"
 # ===== File Manager =====
 @app.route("/files")
 def files_page():
