@@ -49,6 +49,8 @@ then open port 8080
 and do start server
 and go back on the page and see logs
 and i will never add commands support since you should run the server normally onece and op your self
+# IMPORTANT STUFF(S)
+first keep up with the latest build since i make mistakes and i test every build after psuhing if i make an eror i update them immedietly  so watch out thats why i added the latest version checker even if its bloated with python ( not slim image afte 1.1.2)
 # Random Changelog 
 1. at first i used docker it was unstable and shitty and didnt work
 2. then moved to python so basically gave out the code 
