@@ -57,3 +57,5 @@ first keep up with the latest build since i make mistakes and i test every build
 3. then right now reused docker and its v1.0.1 for bcuz its a bugfix or some shit since i forgot to add java-17 in it on gonna mkae its code on the git hub but rn if i make it even better i will someday ok?
 4. source code avalable oct 7? 6? 8? maybe? currently open-sorcing it
 5. yeah this is not going to be open source or shit i hate doing it it takes free time so f it 
+6. yeah f it i open sourced it today
+7. the buttons is slow............
