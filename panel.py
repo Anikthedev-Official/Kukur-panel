@@ -25,7 +25,7 @@ server_log = []
 bungee_log = []
 
 # ===== Version check =====
-CURRENT_VERSION = "v1.2.6"  # or read from a file if you prefer
+CURRENT_VERSION = "v1.2.5"  # or read from a file if you prefer
 DOCKER_HUB_REPO = "anikthedev/kukur-panel"
 
 def get_latest_dockerhub_version():
@@ -187,7 +187,7 @@ def restart():
     return "Server and BungeeCord restarted. (issues? hit me up on github, I fix bugs and codes every day!)"
 # kill it
 @app.route("/kill")
-def stop_servers():
+def kill_servers():
     global server_process, bungee_process
     # Stop server
     if server_process and server_process.poll() is None:
