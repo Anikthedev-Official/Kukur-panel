@@ -1,14 +1,10 @@
 # Kukur-panel
 ![Alt text](Untitled.png)
- # Current Version AND PULLS!! 
+ # Current Version AND PULLS ( PUlls removed since it dont work ig)!! 
  <p align="center">
   <img src="https://img.shields.io/docker/v/anikthedev/kukur-panel?sort=date&label=Version&color=blue" alt="Docker Image Version">
 </p>
 <p align="center">
-  <!-- Pull Count -->
-  <a href="https://hub.docker.com/r/anikthedev/kukur-panel">
-    <img src="https://img.shields.io/docker/pulls/anikthedev/kukur-panel?label=Pulls&color=brightgreen" alt="Docker Pulls">
-  </a>
 </p>
 A mc server hosting panel made by me its soo so so simple
 to run it (and pull it. It uses python flask, java (ofc) and docker and no hasty things about users, database and etc. just straight to the point)
@@ -58,3 +54,4 @@ and i will never add commands support since you should run the server normally o
 2. then moved to python so basically gave out the code 
 3. then right now reused docker and its v1.0.1 for bcuz its a bugfix or some shit since i forgot to add java-17 in it on gonna mkae its code on the git hub but rn if i make it even better i will someday ok?
 4. source code avalable oct 7? 6? 8? maybe? currently open-sorcing it
+5. yeah this is not going to be open source or shit i hate doing it it takes free time so f it 
