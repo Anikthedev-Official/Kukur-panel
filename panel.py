@@ -25,7 +25,7 @@ server_log = []
 bungee_log = []
 
 # ===== Version check =====
-CURRENT_VERSION = "v1.2.5"  # or read from a file if you prefer
+CURRENT_VERSION = "v1.2.6"  # or read from a file if you prefer
 DOCKER_HUB_REPO = "anikthedev/kukur-panel"
 
 def get_latest_dockerhub_version():
@@ -113,7 +113,7 @@ function fetchLogs() {
         document.getElementById('bungee-log').textContent=data.bungee_log;
     });
 }
-setInterval(fetchLogs,10);
+setInterval(fetchLogs,1);
 function startServers(){ fetch('/start').then(r=>r.text()).then(msg=>alert(msg)); }
 function restartServers(){ fetch('/restart').then(r=>r.text()).then(msg=>alert(msg)); }
 function stopServers(){ fetch('/stop').then(r=>r.text()).then(msg=>alert(msg)); }
