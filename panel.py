@@ -61,61 +61,101 @@ def home():
     template = '''
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kukur Panel</title>
-<style>
-body { font-family:'Segoe UI', sans-serif; background:#1e1e2f; color:#eee; padding:20px; }
-h1,h2{color:#61dafb;} h1{text-align:center;}
-button{background:#3a3f58; border:none; padding:10px 20px; margin:5px; color:#eee; cursor:pointer; border-radius:5px; font-size:1rem; transition:0.3s;}
-button:hover{background:#61dafb;color:#1e1e2f;}
-pre{background:#2d2d44; padding:15px; border-radius:8px; max-height:300px; overflow:auto;}
-#FUCK_CODING { text-align:center; }
-div { text-align:center; }
-</style>
-</head>
-<body>
-  <h1>Kukur Panel</h1>
-<p id="FUCK_CODING">
-  {% if latest_version %}
-      Running {{ current_version }}{% if is_old %}, latest is {{ latest_version }} ⚠️{% endif %}
-  {% else %}
-      Running {{ current_version }}, unable to fetch latest version.
-  {% endif %}
-</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kukur Panel</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #1e1e2f;
+        color: #eee;
+        padding: 20px;
+      }
 
-<div>
-<button onclick="startServers()">Start Server(s)</button>
-<button onclick="stopServers()">Stop Server(s)</button>
-<button onclick="window.open('/files?type=server','_blank')">Open Server Files</button>
-<button onclick="window.open('/files?type=bungee','_blank')">Open Bungee Files</button>
-</div>
-<h2>Main Server Logs</h2>
-<pre id="server-log"></pre>
-<h2>BungeeCord Proxy Logs</h2>
-<pre id="bungee-log"></pre>
-<h1> LINKS!!!</h1>
-<div>
-<a href="https://github.com/Anikthedev-Official/Kukur-panel" target="_blank">
-  <img src="https://img.shields.io/badge/GitHub-Kukur%20Panel-blue?style=for-the-badge&logo=github" alt="GitHub Repo">
-</a>
-<a href="https://hub.docker.com/r/anikthedev/kukur-panel" target="_blank">
-  <img src="https://img.shields.io/badge/Docker-Kukur%20Panel-blue?style=for-the-badge&logo=docker" alt="Docker Hub">
-</a>
-</div>
-<script>
-function fetchLogs() {
-    fetch('/logs').then(r=>r.json()).then(data=>{
-        document.getElementById('server-log').textContent=data.server_log;
-        document.getElementById('bungee-log').textContent=data.bungee_log;
-    });
-}
-setInterval(fetchLogs,1);
-function startServers(){ fetch('/start').then(r=>r.text()).then(msg=>alert(msg)); }
-function stopServers(){ fetch('/stop').then(r=>r.text()).then(msg=>alert(msg)); }
-</script>
-</body>
+      h1,
+      h2 {
+        color: #61dafb;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      button {
+        background: #3a3f58;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        color: #eee;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #61dafb;
+        color: #1e1e2f;
+      }
+
+      pre {
+        background: #2d2d44;
+        padding: 15px;
+        border-radius: 8px;
+        max-height: 300px;
+        overflow: auto;
+      }
+
+      #FUCK_CODING {
+        text-align: center;
+      }
+
+      div {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kukur Panel</h1>
+    <p id="FUCK_CODING"> {% if latest_version %} Running {{ current_version }}{% if is_old %}, latest is {{ latest_version }} ⚠️{% endif %} {% else %} Running {{ current_version }}, unable to fetch latest version. {% endif %} </p>
+    <div>
+      <button onclick="startServers()">Start Server(s)</button>
+      <button onclick="stopServers()">Stop Server(s)</button>
+      <button onclick="window.open('/files?type=server','_blank')">Open Server Files</button>
+      <button onclick="window.open('/files?type=bungee','_blank')">Open Bungee Files</button>
+    </div>
+    <h2>Main Server Logs</h2>
+    <pre id="server-log"></pre>
+    <h2>BungeeCord Proxy Logs</h2>
+    <pre id="bungee-log"></pre>
+    <h1> LINKS!!!</h1>
+    <div>
+      <a href="https://github.com/Anikthedev-Official/Kukur-panel" target="_blank">
+        <img src="https://img.shields.io/badge/GitHub-Kukur%20Panel-blue?style=for-the-badge&logo=github" alt="GitHub Repo">
+      </a>
+      <a href="https://hub.docker.com/r/anikthedev/kukur-panel" target="_blank">
+        <img src="https://img.shields.io/badge/Docker-Kukur%20Panel-blue?style=for-the-badge&logo=docker" alt="Docker Hub">
+      </a>
+    </div>
+    <script>
+      function fetchLogs() {
+        fetch('/logs').then(r => r.json()).then(data => {
+          document.getElementById('server-log').textContent = data.server_log;
+          document.getElementById('bungee-log').textContent = data.bungee_log;
+        });
+      }
+      setInterval(fetchLogs, 1);
+
+      function startServers() {
+        fetch('/start').then(r => r.text()).then(msg => alert(msg));
+      }
+
+      function stopServers() {
+        fetch('/stop').then(r => r.text()).then(msg => alert(msg));
+      }
+    </script>
+  </body>
 </html>
 '''
     return render_template_string(template,
@@ -170,54 +210,115 @@ def files_page():
 
     template='''<!DOCTYPE html>
 <html>
-<head><title>File Manager</title>
-<style>
-body{font-family:'Segoe UI';background:#1e1e2f;color:#eee;padding:20px;}
-h2{color:#61dafb;}
-form{margin-bottom:10px;}
-input,button{padding:5px;border-radius:4px;border:none;}
-input[type=file],input[type=text]{background:#2d2d44;color:#eee;border:1px solid #3a3f58;}
-button{background:#3a3f58;color:#eee;cursor:pointer;margin-left:5px;}
-button:hover{background:#61dafb;color:#1e1e2f;}
-a{color:#61dafb;text-decoration:none;}a:hover{text-decoration:underline;}
-table{width:100%;border-collapse:collapse;margin-top:10px;}
-th,td{border:1px solid #3a3f58;padding:8px;}
-th{background:#2d2d44;}
-tr:nth-child(even){background:#252539;} tr:nth-child(odd){background:#1e1e2f;}
-</style>
-</head>
-<body>
-<h2>File Manager - {{ current_path }}</h2>
-<form action="/upload?path={{ current_path }}&type={{ folder_type }}" method="post" enctype="multipart/form-data">
-<input type="file" name="file"><button type="submit">Upload</button>
-</form>
-<form action="/new_folder" method="post">
-<input type="text" name="folder_name" placeholder="New Folder Name">
-<input type="hidden" name="path" value="{{ current_path }}">
-<input type="hidden" name="type" value="{{ folder_type }}">
-<button type="submit">Create Folder</button>
-</form>
-{% if parent_path %}
-<p><a href="/files?path={{ parent_path }}&type={{ folder_type }}">⬅ Back</a></p>
-{% endif %}
-<table><tr><th>Name</th><th>Actions</th></tr>
-{% for item in items %}
-<tr>
-<td>{% if item.is_dir %}📁 <a href="/files?path={{ item.relpath }}&type={{ folder_type }}">{{ item.name }}</a>{% else %}📄 {{ item.name }}{% endif %}</td>
-<td>{% if not item.is_dir %}
-<a href="/download?path={{ item.relpath }}&type={{ folder_type }}">Download</a>
-<a href="#" onclick="openEditor('{{ item.relpath }}','{{ folder_type }}')">Edit</a>
-<a href="/delete?path={{ item.relpath }}&type={{ folder_type }}">Delete</a>
-{% else %}
-<a href="/delete?path={{ item.relpath }}&type={{ folder_type }}">Delete Folder</a>
-{% endif %}</td>
-</tr>
-{% endfor %}
-</table>
-<script>
-function openEditor(path,type){ window.open('/edit?path='+encodeURIComponent(path)+'&type='+encodeURIComponent(type),'editorWindow','width=800,height=600,resizable=yes,scrollbars=yes'); }
-</script>
-</body>
+  <head>
+    <title>File Manager</title>
+    <style>
+      body {
+        font-family: 'Segoe UI';
+        background: #1e1e2f;
+        color: #eee;
+        padding: 20px;
+      }
+
+      h2 {
+        color: #61dafb;
+      }
+
+      form {
+        margin-bottom: 10px;
+      }
+
+      input,
+      button {
+        padding: 5px;
+        border-radius: 4px;
+        border: none;
+      }
+
+      input[type=file],
+      input[type=text] {
+        background: #2d2d44;
+        color: #eee;
+        border: 1px solid #3a3f58;
+      }
+
+      button {
+        background: #3a3f58;
+        color: #eee;
+        cursor: pointer;
+        margin-left: 5px;
+      }
+
+      button:hover {
+        background: #61dafb;
+        color: #1e1e2f;
+      }
+
+      a {
+        color: #61dafb;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+
+      th,
+      td {
+        border: 1px solid #3a3f58;
+        padding: 8px;
+      }
+
+      th {
+        background: #2d2d44;
+      }
+
+      tr:nth-child(even) {
+        background: #252539;
+      }
+
+      tr:nth-child(odd) {
+        background: #1e1e2f;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>File Manager - {{ current_path }}</h2>
+    <form action="/upload?path={{ current_path }}&type={{ folder_type }}" method="post" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <button type="submit">Upload</button>
+    </form>
+    <form action="/new_folder" method="post">
+      <input type="text" name="folder_name" placeholder="New Folder Name">
+      <input type="hidden" name="path" value="{{ current_path }}">
+      <input type="hidden" name="type" value="{{ folder_type }}">
+      <button type="submit">Create Folder</button>
+    </form> {% if parent_path %} <p>
+      <a href="/files?path={{ parent_path }}&type={{ folder_type }}">⬅ Back</a>
+    </p> {% endif %} <table>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr> {% for item in items %} <tr>
+        <td>{% if item.is_dir %}📁 <a href="/files?path={{ item.relpath }}&type={{ folder_type }}">{{ item.name }}</a>{% else %}📄 {{ item.name }}{% endif %} </td>
+        <td>{% if not item.is_dir %} <a href="/download?path={{ item.relpath }}&type={{ folder_type }}">Download</a>
+          <a href="#" onclick="openEditor('{{ item.relpath }}','{{ folder_type }}')">Edit</a>
+          <a href="/delete?path={{ item.relpath }}&type={{ folder_type }}">Delete</a> {% else %} <a href="/delete?path={{ item.relpath }}&type={{ folder_type }}">Delete Folder</a> {% endif %}
+        </td>
+      </tr> {% endfor %}
+    </table>
+    <script>
+      function openEditor(path, type) {
+        window.open('/edit?path=' + encodeURIComponent(path) + '&type=' + encodeURIComponent(type), 'editorWindow', 'width=800,height=600,resizable=yes,scrollbars=yes');
+      }
+    </script>
+  </body>
 </html>
 '''
     return render_template_string(template, items=items, current_path=relpath, parent_path=None if relpath=="" else os.path.dirname(relpath), folder_type=folder_type)
