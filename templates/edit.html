@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Editing {{ relpath }}</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+<style>
+body{margin:0;background:#1e1e2f;color:#eee;font-family:sans-serif;}
+#editor{position:absolute;top:50px;bottom:0;left:0;right:0;}
+h3{padding:10px;margin:0;background:#2d2d44;}
+button{position:absolute;top:10px;right:10px;padding:5px 10px;border:none;border-radius:5px;cursor:pointer;background:#61dafb;color:#1e1e2f;}
+</style>
+</head>
+<body>
+<h3>Editing: {{ relpath }}</h3>
+<form method="post" onsubmit="return saveContent();">
+<div id="editor">{{ content }}</div>
+<textarea name="content" id="hiddenContent" style="display:none;"></textarea>
+<button type="submit">Save</button>
+</form>
+
+<script>
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/monokai");
+editor.session.setMode("ace/mode/{{ mode }}");
+editor.session.setValue(`{{ content|replace(",","\\,") }},);
+editor.setOptions({fontSize:"14pt",showPrintMargin:false});
+
+function saveContent(){
+    document.getElementById("hiddenContent").value = editor.getValue();
+    return true;
+}
+</script>
+</body>
+</html>

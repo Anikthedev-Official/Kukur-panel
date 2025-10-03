@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head><title>File Manager</title>
+<style>
+body{font-family:'Segoe UI';background:#1e1e2f;color:#eee;padding:20px;}
+h2{color:#61dafb;}
+form{margin-bottom:10px;}
+input,button{padding:5px;border-radius:4px;border:none;}
+input[type=file],input[type=text]{background:#2d2d44;color:#eee;border:1px solid #3a3f58;}
+button{background:#3a3f58;color:#eee;cursor:pointer;margin-left:5px;}
+button:hover{background:#61dafb;color:#1e1e2f;}
+a{color:#61dafb;text-decoration:none;}a:hover{text-decoration:underline;}
+table{width:100%;border-collapse:collapse;margin-top:10px;}
+th,td{border:1px solid #3a3f58;padding:8px;}
+th{background:#2d2d44;}
+tr:nth-child(even){background:#252539;} tr:nth-child(odd){background:#1e1e2f;}
+</style>
+</head>
+<body>
+<h2>File Manager - {{ current_path }}</h2>
+
+<form action="/upload?path={{ current_path }}&type={{ folder_type }}" method="post" enctype="multipart/form-data">
+<input type="file" name="file"><button type="submit">Upload</button>
+</form>
+
+<form action="/new_folder" method="post">
+<input type="text" name="folder_name" placeholder="New Folder Name">
+<input type="hidden" name="path" value="{{ current_path }}">
+<input type="hidden" name="type" value="{{ folder_type }}">
+<button type="submit">Create Folder</button>
+</form>
+
+{% if parent_path %}
+<p><a href="/files?path={{ parent_path }}&type={{ folder_type }}">⬅ Back</a></p>
+{% endif %}
+
+<table><tr><th>Name</th><th>Actions</th></tr>
+{% for item in items %}
+<tr>
+<td>{% if item.is_dir %}📁 <a href="/files?path={{ item.relpath }}&type={{ folder_type }}">{{ item.name }}</a>{% else %}📄 {{ item.name }}{% endif %}</td>
+<td>
+{% if not item.is_dir %}
+<a href="/download?path={{ item.relpath }}&type={{ folder_type }}">Download</a>
+<a href="#" onclick="openEditor('{{ item.relpath }}','{{ folder_type }}')">Edit</a>
+<a href="/delete?path={{ item.relpath }}&type={{ folder_type }}">Delete</a>
+{% else %}
+<a href="/delete?path={{ item.relpath }}&type={{ folder_type }}">Delete Folder</a>
+{% endif %}
+</td>
+</tr>
+{% endfor %}
+</table>
+
+<script>
+function openEditor(path,type){
+    window.open('/edit?path='+encodeURIComponent(path)+'&type='+encodeURIComponent(type),
+                'editorWindow','width=800,height=600,resizable=yes,scrollbars=yes');
+}
+</script>
+</body>
+</html>
