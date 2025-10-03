@@ -25,7 +25,7 @@ server_log = []
 bungee_log = []
 
 # ===== Version check =====
-CURRENT_VERSION = "v1.2.5"  # or read from a file if you prefer
+CURRENT_VERSION = "v1.2.6"  # or read from a file if you prefer
 DOCKER_HUB_REPO = "anikthedev/kukur-panel"
 
 def get_latest_dockerhub_version():
@@ -87,9 +87,7 @@ div { text-align:center; }
 
 <div>
 <button onclick="startServers()">Start Server(s)</button>
-<button onclick="restartServers()">Restart Server(s)</button>
 <button onclick="stopServers()">Stop Server(s)</button>
-<button onclick="kill_it()">Kill Server(s)</button>
 <button onclick="window.open('/files?type=server','_blank')">Open Server Files</button>
 <button onclick="window.open('/files?type=bungee','_blank')">Open Bungee Files</button>
 </div>
@@ -115,9 +113,7 @@ function fetchLogs() {
 }
 setInterval(fetchLogs,1);
 function startServers(){ fetch('/start').then(r=>r.text()).then(msg=>alert(msg)); }
-function restartServers(){ fetch('/restart').then(r=>r.text()).then(msg=>alert(msg)); }
 function stopServers(){ fetch('/stop').then(r=>r.text()).then(msg=>alert(msg)); }
-function kill_it(){ fetch('/kill').then(r=>r.text()).then(msg=>alert(msg)); }
 </script>
 </body>
 </html>
@@ -158,49 +154,6 @@ def stop_servers():
         bungee_process = None
 
     return "Servers stopped successfully. (issues? hit me up on github ill respond i fix bugs and codes every day!)"
-@app.route("/restart")
-def restart():
-    global server_process, bungee_process
-
-    # Stop server
-    if server_process and server_process.poll() is None:
-        server_process.terminate()  # or server_process.kill()
-        server_process.wait()
-        server_process = None
-
-    # Stop bungee
-    if bungee_process and bungee_process.poll() is None:
-        bungee_process.terminate()  # or bungee_process.kill()
-        bungee_process.wait()
-        bungee_process = None
-
-    # Restart server
-    if server_process is None or server_process.poll() is not None:
-        server_process = subprocess.Popen([SERVER_SCRIPT], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True)
-        threading.Thread(target=stream_output, args=(server_process, server_log), daemon=True).start()
-
-    # Restart bungee
-    if bungee_process is None or bungee_process.poll() is not None:
-        bungee_process = subprocess.Popen([BUNGEE_SCRIPT], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, bufsize=1, text=True)
-        threading.Thread(target=stream_output, args=(bungee_process, bungee_log), daemon=True).start()
-
-    return "Server and BungeeCord restarted. (issues? hit me up on github, I fix bugs and codes every day!)"
-# kill it
-@app.route("/kill")
-def kill_servers():
-    global server_process, bungee_process
-    # Stop server
-    if server_process and server_process.poll() is None:
-        server_process.kill()  # or server_process.kill() doing it kills it basically
-        server_process.wait()
-        server_process = None
-
-    # Stop bungee
-    if bungee_process and bungee_process.poll() is None:
-        bungee_process.terminate()  # or bungee_process.kill()
-        bungee_process.wait()
-        bungee_process = None
-    return "Server and BungeeCord KILLED!!. (issues? hit me up on github, I fix bugs and codes every day!)"
 # ===== File Manager =====
 @app.route("/files")
 def files_page():
