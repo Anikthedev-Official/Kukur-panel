@@ -25,7 +25,7 @@ server_log = []
 bungee_log = []
 
 # ===== Version check =====
-CURRENT_VERSION = "v1.2.6"  # or read from a file if you prefer
+CURRENT_VERSION = "v1.2.7"  # or read from a file if you prefer
 DOCKER_HUB_REPO = "anikthedev/kukur-panel"
 
 def get_latest_dockerhub_version():
