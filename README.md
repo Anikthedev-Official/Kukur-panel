@@ -59,4 +59,4 @@ first keep up with the latest build since i make mistakes and i test every build
 5. yeah this is not going to be open source or shit i hate doing it it takes free time so f it 
 6. yeah f it i open sourced it today
 7. the buttons is slow............ DONT USE KILLLLLLLLLL!!!!!!!!!!!!!!!!
-
+8. made a autopush function yesterday for you guys agknowledge it please.!! 🥲🥲🥲
