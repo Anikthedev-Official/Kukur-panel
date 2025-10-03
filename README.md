@@ -62,3 +62,4 @@ first keep up with the latest build since i make mistakes and i test every build
 8. made a autopush function yesterday for you guys agknowledge it please.!! 🥲🥲🥲
 9. removed kill and restart they made the whole image bloated and buggy sorry!
 10. half moving to a folder half not its ther jsut in case
+11. you know what i wont move 
