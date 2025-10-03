@@ -60,3 +60,4 @@ first keep up with the latest build since i make mistakes and i test every build
 6. yeah f it i open sourced it today
 7. the buttons is slow............ DONT USE KILLLLLLLLLL!!!!!!!!!!!!!!!!
 8. made a autopush function yesterday for you guys agknowledge it please.!! 🥲🥲🥲
+9. removed kill and restart they made the whole image bloated and buggy sorry!
