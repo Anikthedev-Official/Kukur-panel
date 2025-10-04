@@ -64,3 +64,4 @@ first keep up with the latest build since i make mistakes and i test every build
 10. half moving to a folder half not its ther jsut in case
 11. you know what i wont move 
 12. umm this [code beutifier](https://codebeautify.org/htmlviewer) just ruined code so the filespage code has been beutified and the home page so ther not speghetti code anymore :) ok? but not the editor page since its buggy
+13. this repo might or might not contained buged unrelesed builds that you will have to compile your self 🫠🫠
