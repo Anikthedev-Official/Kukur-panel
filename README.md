@@ -20,7 +20,7 @@ docker run -d \
   -v /home/yoiwannajinksbegam/server.sh:/app/server.sh \
   -v /home/yoiwannajinksbegam/bungee.sh:/app/bungee.sh \
   --name kukur-panel-container \
-  anikthedev/kukur-panel:v1.2.2
+  anikthedev/kukur-panel:v1.2.7
 ```
 replace the ```/home/yoiwannajinks/<directory>``` with your files okay?
 anyway  if your not using bungee then dont put (for servers that are made for a small groups of friends)
