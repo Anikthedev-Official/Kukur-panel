@@ -66,3 +66,4 @@ first keep up with the latest build since i make mistakes and i test every build
 12. umm this [code beutifier](https://codebeautify.org/htmlviewer) just ruined code so the filespage code has been beutified and the home page so ther not speghetti code anymore :) ok? but not the editor page since its buggy
 13. this repo might or might not contained buged unrelesed builds that you will have to compile your self 🫠🫠
 14. did something unreleased to the public tried to move to a folder for comfortable coding but i cant😭
+15. any obfuscating tehniques i can use (lets use fernet)
